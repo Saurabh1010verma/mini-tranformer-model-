@@ -7,6 +7,11 @@ Usage:
 
 import argparse
 import os
+import sys
+
+# Ensure src directory is in Python path for direct script execution
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
+
 import torch
 
 from mini_gpt.config import ModelConfig
