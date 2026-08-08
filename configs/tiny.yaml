@@ -1,0 +1,33 @@
+# Tiny Configuration - Fast CPU testing
+
+model:
+  vocab_size: 256
+  context_length: 64
+  embedding_dim: 64
+  num_heads: 4
+  num_layers: 2
+  dropout: 0.0
+  bias: false
+
+training:
+  batch_size: 16
+  learning_rate: 5.0e-4
+  weight_decay: 0.01
+  max_epochs: 2
+  grad_clip: 1.0
+  warmup_steps: 10
+  eval_interval: 50
+  eval_iters: 5
+  seed: 42
+  mixed_precision: false
+
+data:
+  dataset_name: "tinyshakespeare"
+  data_url: "https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt"
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  val_split: 0.1
+
+checkpoint:
+  dir: "checkpoints"
+  save_interval: 100

@@ -1,0 +1,33 @@
+# Small Configuration - Standard model run
+
+model:
+  vocab_size: 1000
+  context_length: 256
+  embedding_dim: 256
+  num_heads: 8
+  num_layers: 6
+  dropout: 0.1
+  bias: false
+
+training:
+  batch_size: 32
+  learning_rate: 3.0e-4
+  weight_decay: 0.1
+  max_epochs: 10
+  grad_clip: 1.0
+  warmup_steps: 100
+  eval_interval: 200
+  eval_iters: 20
+  seed: 42
+  mixed_precision: true
+
+data:
+  dataset_name: "tinyshakespeare"
+  data_url: "https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt"
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  val_split: 0.1
+
+checkpoint:
+  dir: "checkpoints"
+  save_interval: 500

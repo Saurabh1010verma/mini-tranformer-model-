@@ -1,0 +1,33 @@
+# Default Mini GPT Configuration
+
+model:
+  vocab_size: 1000        # Will be updated by tokenizer
+  context_length: 256     # Maximum context window size (tokens)
+  embedding_dim: 256      # Transformer hidden dimension
+  num_heads: 8            # Number of attention heads
+  num_layers: 6           # Number of Transformer blocks
+  dropout: 0.1            # Dropout probability
+  bias: false             # Include bias in Linears and LayerNorms (false is standard in modern LLMs)
+
+training:
+  batch_size: 32          # Batch size for training
+  learning_rate: 3.0e-4   # Peak learning rate
+  weight_decay: 0.1       # Weight decay for AdamW
+  max_epochs: 10          # Maximum training epochs
+  grad_clip: 1.0          # Gradient norm clipping value
+  warmup_steps: 100       # Learning rate warmup steps
+  eval_interval: 200      # Evaluation step interval
+  eval_iters: 20          # Evaluation iterations per check
+  seed: 42                # Random seed for reproducibility
+  mixed_precision: true   # Enable automatic mixed precision (CUDA)
+
+data:
+  dataset_name: "tinyshakespeare"
+  data_url: "https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt"
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  val_split: 0.1
+
+checkpoint:
+  dir: "checkpoints"
+  save_interval: 500
